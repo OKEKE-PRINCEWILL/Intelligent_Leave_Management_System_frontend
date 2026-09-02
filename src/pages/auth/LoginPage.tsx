@@ -218,7 +218,7 @@ export function LoginPage() {
             fontFamily: "var(--font-heading)", fontSize: "17px", fontWeight: 600,
             color: "rgba(255,255,255,0.8)",
           }}>
-            Intelligent Leave Management
+            Intelligent Leave Management System
           </div>
         </motion.div>
       </div>
@@ -294,10 +294,10 @@ export function LoginPage() {
                 <Shield size={26} color="#8B5A2B" />
               </motion.div>
 
-              <h2 style={{
+              <h1 style={{
                 fontFamily: "var(--font-heading)", fontSize: "24px", fontWeight: 700,
                 color: "#111827", marginBottom: "5px",
-              }}>Welcome Back</h2>
+              }}>Welcome Back</h1>
               <p style={{ fontSize: "13px", color: "#9CA3AF" }}>
                 Sign in to your ILMS account
               </p>
@@ -514,13 +514,6 @@ export function LoginPage() {
                 </a>
               </div>
             </div>
-          </div>
-
-          <div style={{
-            textAlign: "center", marginTop: "18px",
-            fontSize: "11px", color: "#94A3B8", letterSpacing: "0.4px",
-          }}>
-            NIMASA ILMS v1.0 — Authorized Personnel Only
           </div>
         </motion.form>
       </div>

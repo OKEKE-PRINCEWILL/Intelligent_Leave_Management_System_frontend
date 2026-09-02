@@ -4,29 +4,7 @@ import { Bell } from "lucide-react"
 import { format } from "date-fns"
 import { useNotificationsStore } from "../../store/notifications.store"
 import { useAuthStore } from "../../store/auth.store"
-
-const breadcrumbMap: Record<string, string> = {
-  "/dashboard": "Dashboard",
-  "/leave/apply": "Apply for Leave",
-  "/leave/history": "Leave History",
-  "/leave/conflict-check": "Conflict Check",
-  "/leave/recommend": "Smart Recommender",
-  "/approvals/pending": "Pending Approvals",
-  "/approvals/hr-pending": "HR Approvals",
-  "/approvals/team": "Team Coverage",
-  "/analytics/departments": "Department Analytics",
-  "/analytics/forecast": "Forecast",
-  "/analytics/approval-rate": "Approval Rate",
-  "/anomaly/scan": "Weekly Anomaly Review",
-  "/anomaly/flags": "Anomaly Flags",
-  "/audit/trail": "Audit Trail",
-  "/audit/verify": "Chain Verification",
-  "/admin/employees": "Employee Management",
-  "/admin/departments": "Department Management",
-  "/admin/settings": "System Settings",
-  "/notifications": "Notifications",
-  "/profile": "My Profile",
-}
+import { getPageTitle, getBreadcrumbs } from "../../lib/pageMeta"
 
 export function Header() {
   const location = useLocation()
@@ -39,7 +17,8 @@ export function Header() {
     return () => clearInterval(timer)
   }, [])
 
-  const title = breadcrumbMap[location.pathname] || "ILMS"
+  const title = getPageTitle(location.pathname) || "ILMS"
+  const crumbs = getBreadcrumbs(location.pathname)
 
   return (
     <header
@@ -59,7 +38,8 @@ export function Header() {
     >
       {/* Breadcrumb */}
       <div>
-        <div
+        <nav
+          aria-label="Breadcrumb"
           style={{
             fontSize: "12px",
             color: "var(--text-muted)",
@@ -67,8 +47,19 @@ export function Header() {
             marginBottom: "2px",
           }}
         >
-          ILMS / {title}
-        </div>
+          {crumbs.map((crumb, i) => (
+            <React.Fragment key={i}>
+              {i > 0 && <span style={{ margin: "0 6px", opacity: 0.6 }}>/</span>}
+              {crumb.to ? (
+                <Link to={crumb.to} style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+                  {crumb.label}
+                </Link>
+              ) : (
+                <span aria-current="page">{crumb.label}</span>
+              )}
+            </React.Fragment>
+          ))}
+        </nav>
         <h1 style={{ fontSize: "16px", fontWeight: 700, margin: 0 }}>{title}</h1>
       </div>
 

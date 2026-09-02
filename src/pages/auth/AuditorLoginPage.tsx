@@ -67,7 +67,7 @@ export function AuditorLoginPage() {
             <div style={{ width: "58px", height: "58px", borderRadius: "16px", background: "#111827", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", boxShadow: "0 8px 22px rgba(17,24,39,0.25)" }}>
               <Shield size={26} color="#F8E7C9" />
             </div>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "24px", color: "#111827", marginBottom: "5px" }}>Auditor Login</h2>
+            <h1 style={{ fontFamily: "var(--font-heading)", fontSize: "24px", color: "#111827", marginBottom: "5px" }}>Auditor Login</h1>
             <p style={{ fontSize: "13px", color: "#6B7280", margin: 0 }}>Use your private auditor username and password.</p>
           </div>
 

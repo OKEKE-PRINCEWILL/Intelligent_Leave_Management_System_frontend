@@ -1,0 +1,4 @@
+# ILMS is an internal, login-gated application for authorized personnel.
+# It is not intended for public search indexing.
+User-agent: *
+Disallow: /

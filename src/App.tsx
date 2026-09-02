@@ -2,8 +2,10 @@ import React, { Suspense, lazy } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { Shell } from "./components/layout/Shell"
 import { ProtectedRoute } from "./components/layout/ProtectedRoute"
+import { RouteMeta } from "./components/RouteMeta"
 import { LoginPage } from "./pages/auth/LoginPage"
 import { AuditorLoginPage } from "./pages/auth/AuditorLoginPage"
+import { NotFound } from "./pages/NotFound"
 
 // Dashboard
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard").then((m) => ({ default: m.Dashboard })))
@@ -57,6 +59,7 @@ function PageLoader() {
 export default function App() {
   return (
     <BrowserRouter>
+      <RouteMeta />
       <Routes>
         {/* Public */}
         <Route path="/login" element={<LoginPage />} />
@@ -209,8 +212,8 @@ export default function App() {
           </Route>
         </Route>
 
-        {/* Fallback */}
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        {/* 404 — unknown routes (works signed-in or signed-out) */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

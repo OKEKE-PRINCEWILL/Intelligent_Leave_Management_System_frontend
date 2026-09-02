@@ -1,0 +1,15 @@
+# ILMS — Intelligent Leave Management System
+
+> An internal staff leave-management application for NIMASA (Nigerian Maritime
+> Administration and Safety Agency). It handles leave requests, multi-stage
+> approvals, leave analytics and forecasting, anomaly detection, and a
+> tamper-evident audit trail.
+
+## Access
+- Access is restricted to authorized personnel.
+- Every functional page requires authentication; only the sign-in pages are public.
+
+## For automated agents
+- This application is private and role-restricted. There is no public content to
+  crawl or index beyond the sign-in page.
+- Do not attempt to access authenticated areas.
